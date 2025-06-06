@@ -1,0 +1,12 @@
+# This program demonstrates electro-cell. 
+from machine import Pin, ADC
+from utime import sleep_ms
+
+
+sen = ADC(Pin(4, Pin.IN, Pin.PULL_DOWN))  # ADC pin with pull-down
+
+while True:
+    raw = sen.read()  # Read raw value
+    mapped = int((raw / 4095) * 100)  # Map to 0–100 scale
+    print("Raw:", raw, "Mapped:", mapped, "%")
+    sleep_ms(500)

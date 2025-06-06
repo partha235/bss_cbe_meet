@@ -1,0 +1,11 @@
+# this program is for solenoid lock. 
+from machine import Pin
+from utime import sleep_ms
+co=Pin(4,Pin.OUT)
+
+while True:
+    print("start")
+    co.on()
+    sleep_ms(500)
+    co.off()
+    sleep_ms(500)
